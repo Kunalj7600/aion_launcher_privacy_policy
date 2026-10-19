@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AION Launcher · Privacy policy</title>
+<meta name="description" content="How the AION Launcher handles your data. Short version: it stays on your phone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e8e9eb;
+    --ink: #16171a;
+    --dim: #5d6066;
+    --rule: #b9bbc0;
+    --dot: rgba(22, 23, 26, 0.16);
+    --accent: #d9480f;
+    --display: "Doto", "DotGothic16", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --body: "DotGothic16", "Doto", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121315;
+      --ink: #e9e9e6;
+      --dim: #9a9ca2;
+      --rule: #34363b;
+      --dot: rgba(233, 233, 230, 0.13);
+      --accent: #ffa02e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121315;
+    --ink: #e9e9e6;
+    --dim: #9a9ca2;
+    --rule: #34363b;
+    --dot: rgba(233, 233, 230, 0.13);
+    --accent: #ffa02e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 2rem; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.4px);
+    background-size: 18px 18px;
+    background-position: 0 0;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.25em; text-decoration-style: dotted; }
+  a:hover { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* Layout */
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    column-gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+  nav.toc {
+    position: sticky;
+    top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  nav.toc p { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin: 0 0 0.75rem; }
+  nav.toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px dotted var(--rule); }
+  nav.toc li a {
+    display: block;
+    padding: 0.35rem 0 0.35rem 0.9rem;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    color: var(--dim);
+    text-decoration: none;
+  }
+  nav.toc li a:hover, nav.toc li a[aria-current="true"] { color: var(--ink); border-left-color: var(--accent); }
+
+  /* Header */
+  header.top { padding: clamp(3rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3.5rem); }
+  .brand { display: flex; align-items: center; gap: 0.75rem; font-family: var(--display); font-weight: 800; font-size: 1.375rem; }
+  .brand i { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(4rem, 17vw, 11.5rem);
+    line-height: 0.82;
+    letter-spacing: -0.01em;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  }
+  h1 span { display: block; }
+  h1 .thin { font-weight: 200; color: var(--dim); }
+  .meta { margin: 2rem 0 0; color: var(--dim); font-size: 0.9375rem; }
+
+  /* Content */
+  main { padding-bottom: 6rem; min-width: 0; }
+  section { padding-top: 3.5rem; }
+  h2 {
+    font-family: var(--display);
+    font-weight: 850;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1;
+    margin: 0 0 1.25rem;
+    letter-spacing: 0;
+  }
+  h3 { font-family: var(--display); font-weight: 800; font-size: 1.375rem; line-height: 1.1; margin: 2rem 0 0.4rem; }
+  p { margin: 0 0 1.1rem; max-width: 66ch; }
+  .lead { font-size: 1.25rem; line-height: 1.6; max-width: 56ch; }
+  ul.plain { margin: 0 0 1.25rem; padding: 0; list-style: none; max-width: 66ch; }
+  ul.plain li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; }
+  ul.plain li::before {
+    content: "";
+    position: absolute; left: 0.2rem; top: 0.72em;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+  }
+  strong { font-weight: 400; color: var(--accent); }
+
+  /* Dot-leader summary */
+  dl.facts { margin: 2rem 0 0; max-width: 640px; }
+  dl.facts .row { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.5rem 0; }
+  dl.facts dt { margin: 0; white-space: nowrap; }
+  dl.facts .lead-dots { flex: 1; min-width: 1rem; border-bottom: 2px dotted var(--rule); transform: translateY(-0.3em); }
+  dl.facts dd { margin: 0; text-align: right; font-family: var(--display); font-weight: 800; font-size: 1.25rem; }
+  dl.facts dd.warn { color: var(--accent); }
+
+  /* Data table */
+  .table-scroll { overflow-x: auto; margin: 1.25rem 0 1.5rem; max-width: 100%; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.9375rem; line-height: 1.55; }
+  th, td { text-align: left; vertical-align: top; padding: 0.8rem 1rem 0.8rem 0; border-bottom: 1px dotted var(--rule); }
+  th { font-family: var(--display); font-weight: 800; font-size: 1.125rem; border-bottom: 2px dotted var(--ink); }
+  td:first-child { color: var(--ink); width: 28%; }
+  td { color: var(--dim); }
+  td:first-child { color: var(--ink); }
+
+  .note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px dotted var(--accent);
+    max-width: 66ch;
+  }
+  .note p:last-child { margin-bottom: 0; }
+
+  footer { border-top: 2px dotted var(--rule); padding: 2rem 0 3rem; color: var(--dim); font-size: 0.9375rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+  .todo { background: var(--accent); color: var(--bg); padding: 0 0.35em; }
+
+  @media (max-width: 860px) {
+    .page { display: block; }
+    nav.toc { position: static; margin-bottom: 1rem; padding-top: 0; }
+    nav.toc ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; border-left: 0; }
+    nav.toc li a { padding: 0.2rem 0; border-left: 0; margin: 0; border-bottom: 1px dotted transparent; }
+    nav.toc li a:hover { border-bottom-color: var(--accent); }
+    dl.facts .row { flex-wrap: wrap; }
+    dl.facts dt { white-space: normal; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    dl.facts dd { font-size: 1.125rem; }
+  }
+  @media print {
+    body { background: #fff; color: #000; background-image: none; }
+    nav.toc { display: none; }
+    a { color: #000; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><i aria-hidden="true"></i>AION Launcher</div>
+    <h1><span>Privacy</span><span class="thin">policy</span></h1>
+    <p class="meta">Last updated October 19, 2026 &nbsp;/&nbsp; Android package com.aion.home</p>
+  </header>
+
+  <div class="page">
+    <nav class="toc" aria-label="Sections">
+      <p>Contents</p>
+      <ul>
+        <li><a href="#summary">The short version</a></li>
+        <li><a href="#device">On your device</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#family">Family sync</a></li>
+        <li><a href="#search">Search suggestions</a></li>
+        <li><a href="#never">What we don’t do</a></li>
+        <li><a href="#control">Your choices</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="summary" style="padding-top:0">
+        <h2>The short version</h2>
+        <p class="lead">AION runs on your phone. Your apps, tiles, wallpapers, photos and music stay on the device. Only two features reach the internet, and both are described below.</p>
+        <dl class="facts">
+          <div class="row"><dt>Account required</dt><span class="lead-dots"></span><dd>None</dd></div>
+          <div class="row"><dt>Ads</dt><span class="lead-dots"></span><dd>None</dd></div>
+          <div class="row"><dt>Selling your data</dt><span class="lead-dots"></span><dd>Never</dd></div>
+          <div class="row"><dt>Online feature one</dt><span class="lead-dots"></span><dd class="warn">Family sync</dd></div>
+          <div class="row"><dt>Online feature two</dt><span class="lead-dots"></span><dd class="warn">Search suggestions</dd></div>
+        </dl>
+      </section>
+
+      <section id="device">
+        <h2>What stays on your device</h2>
+        <p>AION is a home screen. To work, it needs to know a few things about your phone. All of the following is processed on the device and is not uploaded.</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>What</th><th>Why AION uses it</th></tr></thead>
+            <tbody>
+              <tr><td>Installed apps and icons</td><td>Builds the app drawer and your tiles, and refreshes them when you install, update or remove an app.</td></tr>
+              <tr><td>Notifications and media playback</td><td>Powers the music tile and live notification tiles. Only available after you turn on Notification access in Android settings.</td></tr>
+              <tr><td>Photos you pick</td><td>Used for photo tiles and wallpapers. AION copies the photos you choose into its private storage, and deletes that copy when you remove the photo from a tile.</td></tr>
+              <tr><td>Battery level and date</td><td>Drawn on the battery and calendar tiles. The calendar tile shows the date only. It does not read your calendar events.</td></tr>
+              <tr><td>Android widgets you add</td><td>AION hosts widgets such as clocks or weather. Each widget belongs to its own app and follows that app’s privacy policy.</td></tr>
+              <tr><td>Your layout and settings</td><td>Tile names, sizes, positions and preferences are saved in AION’s private app storage.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="permissions">
+        <h2>Permissions AION may ask for</h2>
+        <p>Each permission is tied to one feature. If you decline it, that feature stops working and the rest of the launcher carries on.</p>
+        <h3>Notification access</h3>
+        <p>Lets AION read the notifications in your shade and the current media session, so the music and notification tiles can show them. This content is used to draw tiles on your screen. It is not sent to us or to any server.</p>
+        <h3>Post notifications</h3>
+        <p>Lets AION show a notification when family members add something in Family sync. You can switch these alerts off inside AION.</p>
+        <h3>Photo picker and wallpaper</h3>
+        <p>AION opens Android’s photo picker so you choose exactly which images it can see. If you set a system wallpaper, AION asks Android to apply the image you selected.</p>
+        <h3>Widget binding</h3>
+        <p>Android asks for your approval each time AION hosts a widget from another app.</p>
+      </section>
+
+      <section id="family">
+        <h2>Family sync</h2>
+        <p>Family sync is an optional feature that connects AION to the companion AION Hub app, so people in your household can share photos, statuses and short messages. It uses Google Firebase (Authentication and Cloud Firestore) to do this.</p>
+
+        <h3>What happens even if you never link</h3>
+        <p>When AION starts, it connects to Firebase and signs in anonymously. This creates a random ID that is not tied to your name, email address or phone number. AION uses it so that linking is ready when you want it. Nothing else is shared until you create a link code.</p>
+
+        <h3>What is stored once you link</h3>
+        <ul class="plain">
+          <li>The random link code and the anonymous ID that goes with it.</li>
+          <li>The display name, avatar and status text you set for yourself in the family.</li>
+          <li>Photos you add to the family. AION shrinks them to at most 1080 pixels and compresses them before upload, and stores both a thumbnail and the full image.</li>
+          <li>Pokes, and view-once photos (“snaps”) you send. A snap is deleted from the server the moment the recipient opens it.</li>
+          <li>Notes, voice notes and to-dos that family members create in the Hub. AION reads who added them so it can notify you.</li>
+        </ul>
+
+        <h3>Who can see it</h3>
+        <p>People who are linked to the same family, and the service providers that run Firebase. We do not use this content for advertising, analytics or profiling.</p>
+
+        <h3>Leaving a family</h3>
+        <p>Choosing unlink in AION removes this device’s link from the family and clears the linking details saved on your phone. Content already shared with the family, such as a photo, may remain in the family space until it is removed from the Hub.</p>
+
+        <div class="note">
+          <p>Firebase is operated by Google. Data held there is subject to <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase’s privacy information</a> as well as this policy.</p>
+        </div>
+      </section>
+
+      <section id="search">
+        <h2>Search suggestions</h2>
+        <p>When you type in AION’s search bar, the text you type is sent to Google’s search suggestion service so AION can show completions. Google receives that text and your device’s IP address, as with any web request.</p>
+        <p>When you tap a suggestion, AION opens google.com in your browser with that search. From that point Google’s own privacy policy applies. AION does not keep a history of your searches.</p>
+      </section>
+
+      <section id="never">
+        <h2>What we don’t do</h2>
+        <ul class="plain">
+          <li>We don’t show ads or work with ad networks.</li>
+          <li>We don’t build advertising profiles or sell, rent or trade your information.</li>
+          <li>We don’t collect your location, contacts, call history or messages.</li>
+          <li>We don’t ask you to create an account, or for your name, email or phone number.</li>
+          <li>We don’t upload your installed app list, notifications or music activity.</li>
+        </ul>
+      </section>
+
+      <section id="control">
+        <h2>Your choices</h2>
+        <ul class="plain">
+          <li>Turn off Notification access any time in Android settings. The music and notification tiles will stop.</li>
+          <li>Turn off Family alerts inside AION, or unlink from your family.</li>
+          <li>Remove photos from tiles to delete AION’s private copy.</li>
+          <li>Clear AION’s storage or uninstall the launcher to remove everything saved on your phone.</li>
+          <li>To ask about data held in Family sync, or to have it removed, contact us using the details below. Please include your link code or family details so we can find it.</li>
+        </ul>
+      </section>
+
+      <section id="children">
+        <h2>Children</h2>
+        <p>AION is not directed at children under 13, and we do not knowingly collect personal information from them. Family sync is designed for people who already know each other, such as a household. Parents and guardians who set it up for a child are responsible for what that child shares in the family.</p>
+      </section>
+
+      <section id="changes">
+        <h2>Changes to this policy</h2>
+        <p>If AION’s behavior changes in a way that affects your data, we will update this page and the date at the top. Material changes will also be noted in the app’s release notes.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Questions, requests or concerns about privacy:</p>
+        <p>Email <a href="mailto:your-email@example.com"><span class="todo">kunalj7600@gmail.com</span></a></p>
+        <p>Developer: Kunal &nbsp;/&nbsp; <a href="https://github.com/Kunalj7600" rel="noopener">github.com/Kunalj7600</a></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>AION Launcher · Privacy policy</span>
+    <span>Updated October 19, 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Highlight the current section in the contents list
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.removeAttribute('aria-current'); });
+          var a = map[e.target.id];
+          if (a) a.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  })();
+</script>
+</body>
+</html>
