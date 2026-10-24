@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AION Hub · Privacy policy</title>
+<meta name="description" content="How AION Hub handles your data. Short version: your family's content is visible only to your family.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e8e9eb;
+    --ink: #16171a;
+    --dim: #5d6066;
+    --rule: #b9bbc0;
+    --dot: rgba(22, 23, 26, 0.16);
+    --accent: #d9480f;
+    --display: "Doto", "DotGothic16", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --body: "DotGothic16", "Doto", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121315;
+      --ink: #e9e9e6;
+      --dim: #9a9ca2;
+      --rule: #34363b;
+      --dot: rgba(233, 233, 230, 0.13);
+      --accent: #ffa02e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121315;
+    --ink: #e9e9e6;
+    --dim: #9a9ca2;
+    --rule: #34363b;
+    --dot: rgba(233, 233, 230, 0.13);
+    --accent: #ffa02e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 2rem; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--dot) 1.2px, transparent 1.4px);
+    background-size: 18px 18px;
+    background-position: 0 0;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 0.25em; text-decoration-style: dotted; }
+  a:hover { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+  .page {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    column-gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+  nav.toc { position: sticky; top: 2rem; padding-top: 1rem; font-size: 0.9375rem; line-height: 1.5; }
+  nav.toc p { font-family: var(--display); font-weight: 800; font-size: 1.25rem; margin: 0 0 0.75rem; }
+  nav.toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px dotted var(--rule); }
+  nav.toc li a {
+    display: block; padding: 0.35rem 0 0.35rem 0.9rem; margin-left: -1px;
+    border-left: 2px solid transparent; color: var(--dim); text-decoration: none;
+  }
+  nav.toc li a:hover, nav.toc li a[aria-current="true"] { color: var(--ink); border-left-color: var(--accent); }
+
+  header.top { padding: clamp(3rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3.5rem); }
+  .brand { display: flex; align-items: center; gap: 0.75rem; font-family: var(--display); font-weight: 800; font-size: 1.375rem; }
+  .brand i { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  h1 {
+    font-family: var(--display); font-weight: 900;
+    font-size: clamp(4rem, 17vw, 11.5rem); line-height: 0.82; letter-spacing: -0.01em;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  }
+  h1 span { display: block; }
+  h1 .thin { font-weight: 200; color: var(--dim); }
+  .meta { margin: 2rem 0 0; color: var(--dim); font-size: 0.9375rem; }
+
+  main { padding-bottom: 6rem; min-width: 0; }
+  section { padding-top: 3.5rem; }
+  h2 {
+    font-family: var(--display); font-weight: 850;
+    font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1; margin: 0 0 1.25rem; letter-spacing: 0;
+  }
+  h3 { font-family: var(--display); font-weight: 800; font-size: 1.375rem; line-height: 1.1; margin: 2rem 0 0.4rem; }
+  p { margin: 0 0 1.1rem; max-width: 66ch; }
+  .lead { font-size: 1.25rem; line-height: 1.6; max-width: 56ch; }
+  ul.plain { margin: 0 0 1.25rem; padding: 0; list-style: none; max-width: 66ch; }
+  ul.plain li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; }
+  ul.plain li::before {
+    content: ""; position: absolute; left: 0.2rem; top: 0.72em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  }
+  strong { font-weight: 400; color: var(--accent); }
+
+  dl.facts { margin: 2rem 0 0; max-width: 640px; }
+  dl.facts .row { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.5rem 0; }
+  dl.facts dt { margin: 0; white-space: nowrap; }
+  dl.facts .lead-dots { flex: 1; min-width: 1rem; border-bottom: 2px dotted var(--rule); transform: translateY(-0.3em); }
+  dl.facts dd { margin: 0; text-align: right; font-family: var(--display); font-weight: 800; font-size: 1.25rem; }
+  dl.facts dd.warn { color: var(--accent); }
+
+  .table-scroll { overflow-x: auto; margin: 1.25rem 0 1.5rem; max-width: 100%; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.9375rem; line-height: 1.55; }
+  th, td { text-align: left; vertical-align: top; padding: 0.8rem 1rem 0.8rem 0; border-bottom: 1px dotted var(--rule); }
+  th { font-family: var(--display); font-weight: 800; font-size: 1.125rem; border-bottom: 2px dotted var(--ink); }
+  td:first-child { color: var(--ink); width: 28%; }
+  td { color: var(--dim); }
+  td:first-child { color: var(--ink); }
+
+  .note { margin: 1.5rem 0; padding: 1rem 1.25rem; border: 1px dotted var(--accent); max-width: 66ch; }
+  .note p:last-child { margin-bottom: 0; }
+
+  footer { border-top: 2px dotted var(--rule); padding: 2rem 0 3rem; color: var(--dim); font-size: 0.9375rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
+  .todo { background: var(--accent); color: var(--bg); padding: 0 0.35em; }
+
+  @media (max-width: 860px) {
+    .page { display: block; }
+    nav.toc { position: static; margin-bottom: 1rem; padding-top: 0; }
+    nav.toc ul { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; border-left: 0; }
+    nav.toc li a { padding: 0.2rem 0; border-left: 0; margin: 0; border-bottom: 1px dotted transparent; }
+    nav.toc li a:hover { border-bottom-color: var(--accent); }
+    dl.facts .row { flex-wrap: wrap; }
+    dl.facts dt { white-space: normal; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    dl.facts dd { font-size: 1.125rem; }
+  }
+  @media print {
+    body { background: #fff; color: #000; background-image: none; }
+    nav.toc { display: none; }
+    a { color: #000; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><i aria-hidden="true"></i>AION Hub</div>
+    <h1><span>Privacy</span><span class="thin">policy</span></h1>
+    <p class="meta">Last updated October 24, 2026 &nbsp;/&nbsp; Android package com.aion.familyhub</p>
+  </header>
+
+  <div class="page">
+    <nav class="toc" aria-label="Sections">
+      <p>Contents</p>
+      <ul>
+        <li><a href="#summary">The short version</a></li>
+        <li><a href="#collect">What we store</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#sharing">Who can see it</a></li>
+        <li><a href="#never">What we don’t do</a></li>
+        <li><a href="#delete">Delete your data</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#changes">Changes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="summary" style="padding-top:0">
+        <h2>The short version</h2>
+        <p class="lead">AION Hub is a private space for your family. It stores what you choose to share, and shows it only to the people in your family group.</p>
+        <dl class="facts">
+          <div class="row"><dt>Email or password</dt><span class="lead-dots"></span><dd>None</dd></div>
+          <div class="row"><dt>Ads and trackers</dt><span class="lead-dots"></span><dd>None</dd></div>
+          <div class="row"><dt>Selling your data</dt><span class="lead-dots"></span><dd>Never</dd></div>
+          <div class="row"><dt>Your location</dt><span class="lead-dots"></span><dd>Never read</dd></div>
+          <div class="row"><dt>View-once snaps</dt><span class="lead-dots"></span><dd class="warn">Deleted on open</dd></div>
+        </dl>
+      </section>
+
+      <section id="collect">
+        <h2>What we store</h2>
+        <p>Hub keeps your family’s content online so it can sync between phones. It uses Google Firebase (Authentication and Cloud Firestore) to do this. We only store what you put into the app, plus a random account ID.</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>What</th><th>Why AION Hub uses it</th></tr></thead>
+            <tbody>
+              <tr><td>Anonymous account ID</td><td>Created automatically when you open the app. It is a random ID, not tied to your name, email or phone number.</td></tr>
+              <tr><td>Display name and avatar</td><td>Shown to the people in your family group.</td></tr>
+              <tr><td>Family group details</td><td>Group name, invite codes and who belongs to the group.</td></tr>
+              <tr><td>Status</td><td>The status you pick, such as “At home”, or the words you type. It also appears on linked AION Launchers.</td></tr>
+              <tr><td>Notes and to-dos</td><td>The text you write, with your name and avatar attached.</td></tr>
+              <tr><td>Photos</td><td>Pictures you share. Hub shrinks them to at most 1080 pixels and stores a thumbnail plus the full image.</td></tr>
+              <tr><td>Voice notes</td><td>Audio you record in the app and send to the group.</td></tr>
+              <tr><td>Snaps and pokes</td><td>View-once photos and short nudges, with who sent them and when.</td></tr>
+              <tr><td>Launcher link code</td><td>A short code that connects your AION Launcher to your Hub profile.</td></tr>
+              <tr><td>Settings on your phone</td><td>Your notification switch and performance mode. These stay on the device.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <p>Firebase is operated by Google. Data held there is subject to <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase’s privacy information</a> as well as this policy. Data is encrypted in transit. It is not end-to-end encrypted, so it is protected by server access rules rather than keys only your family holds.</p>
+        </div>
+      </section>
+
+      <section id="permissions">
+        <h2>Permissions AION Hub may ask for</h2>
+        <p>Each permission is tied to one feature. If you decline it, that feature stops working and the rest of the app carries on.</p>
+        <h3>Microphone</h3>
+        <p>Used only to record voice notes while you are recording one. Recordings are sent to your family group.</p>
+        <h3>Camera and photos</h3>
+        <p>Hub opens the system camera or Android’s photo picker, so it only receives the image you choose. Taking a snap uses the camera the same way.</p>
+        <h3>Notifications</h3>
+        <p>Lets Hub tell you about new snaps, notes, voice notes, to-dos and pokes while the app is in the background. You can switch these off from the menu inside the app.</p>
+        <h3>Storage (Android 9 and older)</h3>
+        <p>Only used to save a shared photo to your gallery when you tap download.</p>
+        <h3>Internet</h3>
+        <p>Needed to sync your family’s content.</p>
+      </section>
+
+      <section id="sharing">
+        <h2>Who can see it</h2>
+        <ul class="plain">
+          <li><strong>Your family group</strong> sees your name, avatar, status, notes, to-dos, photos and voice notes.</li>
+          <li><strong>Snaps and pokes</strong> can only be read by the sender and the receiver. A snap is deleted from the server the moment the receiver opens it.</li>
+          <li><strong>A linked AION Launcher</strong> can show pokes, snaps and group content for its owner, and can upload photos for them. You can unlink it at any time.</li>
+          <li><strong>Service providers</strong> that run Firebase process the data on our behalf.</li>
+        </ul>
+        <p>Anyone in your group can screenshot a snap or save a shared photo, so share with people you trust.</p>
+      </section>
+
+      <section id="never">
+        <h2>What we don’t do</h2>
+        <ul class="plain">
+          <li>We don’t show ads or work with ad networks, and the app has no analytics or tracking tools.</li>
+          <li>We don’t sell, rent or trade your information.</li>
+          <li>We don’t read your location. The “Where is everyone?” button only sends a message asking where someone is.</li>
+          <li>We don’t access your contacts, call history, SMS or other files.</li>
+          <li>We don’t use your content to build profiles.</li>
+        </ul>
+      </section>
+
+      <section id="delete">
+        <h2>Delete your data</h2>
+        <ul class="plain">
+          <li>Delete your own notes, to-dos, photos and voice notes inside the app. The group owner can delete any of them.</li>
+          <li>Leave a family from the app menu to be removed from its member list.</li>
+          <li>Uninstall the app or clear its storage to remove what is saved on your phone.</li>
+          <li>To erase your profile and everything linked to your account ID, email us with the subject “Delete my AION Hub data” and include your display name and family group name. We confirm by reply and finish within 30 days.</li>
+          <li>Group owners can ask for the whole group and its content to be deleted in the same email.</li>
+        </ul>
+      </section>
+
+      <section id="children">
+        <h2>Children</h2>
+        <p>AION Hub is not directed at children under 13, and we do not knowingly collect personal information from them. If you believe a child under 13 has a profile, contact us and we will delete it. Parents and guardians who set Hub up for a child are responsible for what that child shares in the family.</p>
+      </section>
+
+      <section id="changes">
+        <h2>Changes to this policy</h2>
+        <p>If AION Hub’s behavior changes in a way that affects your data, we will update this page and the date at the top. Material changes will also be noted in the app’s release notes.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Questions, requests or concerns about privacy:</p>
+        <p>Email <a href="mailto:your-email@example.com"><span class="todo">kunalj7600@gmail.com</span></a></p>
+        <p>Developer: Kunal &nbsp;/&nbsp; <a href="https://github.com/Kunalj7600" rel="noopener">github.com/Kunalj7600</a></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>AION Hub · Privacy policy</span>
+    <span>Updated October 24, 2026</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    if (!('IntersectionObserver' in window) || !links.length) return;
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) { a.removeAttribute('aria-current'); });
+          var a = map[e.target.id];
+          if (a) a.setAttribute('aria-current', 'true');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  })();
+</script>
+</body>
+</html>
